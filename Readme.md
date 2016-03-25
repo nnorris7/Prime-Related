@@ -22,7 +22,7 @@ SieveOfAtkin().printPrimes(boolListOfPrimes)
 
 #####NB: The prime-counting function grows exponentially! Generating millions of primes could take several minutes or (quite a bit) more, depending on the speed of your computer.
 
-The distribution stats class currently only handles modulo 3 and modulo 10. It calculates the number of primes for the reduced residual class (mod q) as well as the distribution of pairs of consecutive primes among the permissible ϕ(q)^2  pairs of the reduced residual classes (mod q). This class' functions require the consolidated array of primes of type `Int` as their argument.
+The distribution stats class currently only handles modulo 3 and modulo 10. It calculates the number of primes for the reduced residual class (mod q) as well as the distribution of pairs of consecutive primes among the permissible ϕ(q)<sup>2</sup>  pairs of the reduced residual classes (mod q). This class' functions require the consolidated array of primes of type `Int` as their argument.
 
 ```swift
 let primes = SieveOfAtkin().consolidatePrimes(boolListOfPrimes)
