@@ -18,13 +18,28 @@ class SieveOfEratosthenes: NSObject {
         sieveList[0] = false
         sieveList[1] = false
         
-        for i in 2..<limitSqrt {
-            if sieveList[i] == true {
-                for var j = i*i; j < limit; j += i {
-                    sieveList[j] = false
+        if limitSqrt > 2 {
+            for i in 2..<limitSqrt {
+                if sieveList[i] == true {
+                    var j = i*i
+                    while j < limit {
+                        sieveList[j] = false
+                        j += i
+                    }
                 }
             }
         }
+        
+//        if limitSqrt > 2 {
+//            for i in 2..<limitSqrt {
+//                if sieveList[i] == true {
+//                    let j = i * i
+//                    for y in j.stride(to: limit, by: i) {
+//                        sieveList[y] = false
+//                    }
+//                }
+//            }
+//        }
 
         return sieveList
     }

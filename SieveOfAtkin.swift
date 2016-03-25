@@ -19,8 +19,8 @@ class SieveOfAtkin: NSObject {
         sieveList[2] = true
         sieveList[3] = true
         
-        for var x = 1; x <= limitSqrt; x++ {
-            for var y = 1; y <= limitSqrt; y++ {
+        for x in 1...limitSqrt {
+            for y in 1...limitSqrt {
                 // first quadractic
                 var n = (4 * x * x) + (y * y)
                 if n <= limit && (n % 12 == 1 || n % 12 == 5) {
@@ -40,15 +40,20 @@ class SieveOfAtkin: NSObject {
                 }
             }
         }
-        
-        for var n = 5; n <= limitSqrt; n++ {
-            if sieveList[n] {
-                let x = n * n
-                for var i = x; i <= limit; i += x {
-                    sieveList[i] = false
+
+        if limitSqrt > 5 {
+            for n in 5...limitSqrt {
+                if sieveList[n] {
+                    let x = n * n
+                    var i = x
+                    while i <= limit {
+                        sieveList[i] = false
+                        i += x
+                    }
                 }
-            }
+             }
         }
+        
         return sieveList
     }
     
